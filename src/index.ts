@@ -23,7 +23,7 @@ require("dotenv").config();
 const app = express();
 const server = http.createServer(app); // Create an HTTP server using Express app
 
-const corsOriginList = ["http://localhost:3000", "http://localhost:3001", "https://777-guards.com", "https://www.777-guards.com"];
+const corsOriginList = ["http://localhost:3000", "http://localhost:3001", "https://777-guards.com", "https://www.777-guards.com", "https://admin.777-guards.com", "https://www.admin.777-guards.com"];
 
 app.use(
   cors({
