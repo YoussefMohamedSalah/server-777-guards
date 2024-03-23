@@ -52,11 +52,25 @@ export const getJobById = async (id: string) => {
 export const getJobs = async () => {
     try {
         const jobRepository = getRepository(Job);
-        const userTodos = await jobRepository
+        const jobs = await jobRepository
             .createQueryBuilder("job")
             .leftJoinAndSelect("job.candidates", "candidate")
             .getMany();
-        return userTodos;
+        return jobs;
+    } catch (error) {
+        // Handle the error
+        console.error("Error Retrieving Jobs:", error);
+        return;
+    }
+};
+
+export const getJobsOpenClient = async () => {
+    try {
+        const jobRepository = getRepository(Job);
+        const jobs = await jobRepository
+            .createQueryBuilder("job")
+            .getMany();
+        return jobs;
     } catch (error) {
         // Handle the error
         console.error("Error Retrieving Jobs:", error);

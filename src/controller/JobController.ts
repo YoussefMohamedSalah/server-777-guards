@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { isValidUUID } from "../utils/validateUUID";
-import { createJob, getJobById, getJobs } from "../repositories/JobRepository";
+import { createJob, getJobById, getJobs, getJobsOpenClient } from "../repositories/JobRepository";
 import { CreateJobInput } from "../types/CreateJobInput";
 
 export const addJob = async (req: Request, res: Response) => {
@@ -73,6 +73,17 @@ export const deleteJob = async (req: Request, res: Response) => {
 export const getAllJobs = async (req: Request, res: Response) => {
     try {
         const jobs = await getJobs();
+        if (!jobs) return res.status(404).json({ msg: "Jobs not found" });
+        return res.status(200).json(jobs);
+    } catch (error) {
+        console.error("Error Retrieving Jobs:", error);
+        return res.status(500).json({ msg: "Internal server error" });
+    }
+};
+
+export const getAllJobsOpenClient = async (req: Request, res: Response) => {
+    try {
+        const jobs = await getJobsOpenClient();
         if (!jobs) return res.status(404).json({ msg: "Jobs not found" });
         return res.status(200).json(jobs);
     } catch (error) {
