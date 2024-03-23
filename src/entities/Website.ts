@@ -29,6 +29,9 @@ export class Website extends BaseEntity {
     phone_number_2: string;
 
     @Column({ nullable: true })
+    address: string;
+
+    @Column({ nullable: true })
     facebook: string;
 
     @Column({ nullable: true })
