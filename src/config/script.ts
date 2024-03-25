@@ -73,7 +73,7 @@ const addWebsite = async (identifier: string) => {
     website.identifier = identifier;
     website.facebook = "https://www.facebook.com/profile.php?id=61556189053260&mibextid=ibOpuV";
     website.instagram = "https://www.instagram.com/777.guards/?igsh=aGI5ZjJpMDc5ZXA4&utm_source=qr";
-    website.tiktok = "https://www.tiktok.com/@777guards.securit?_t=8khOS9cHtIM&_r=1";
+    website.linkedin = "";
 
     await websiteRepository.save(website);
     return console.log("Website Created Successfully");
