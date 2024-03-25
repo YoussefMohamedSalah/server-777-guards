@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import { getWebsite } from "../repositories/WebsiteRepository";
 
 export const updateWebsite = async (req: Request, res: Response) => {
-    const { name, email, land_line, phone_number_1, phone_number_2, address, facebook, instagram, tiktok } = req.body;
+    const { name, email, land_line, phone_number_1, phone_number_2, ar_address, en_address, facebook, instagram, linkedin } = req.body;
     const { identifier } = req.params;
 
     try {
@@ -13,10 +13,11 @@ export const updateWebsite = async (req: Request, res: Response) => {
         website.land_line = land_line ? land_line : website.land_line;
         website.phone_number_1 = phone_number_1 ? phone_number_1 : website.phone_number_1;
         website.phone_number_2 = phone_number_2 ? phone_number_2 : website.phone_number_2;
-        website.address = address ? address : website.address;
+        website.ar_address = ar_address ? ar_address : website.ar_address;
+        website.en_address = en_address ? en_address : website.en_address;
         website.facebook = facebook ? facebook : website.facebook;
         website.instagram = instagram ? instagram : website.instagram;
-        website.tiktok = tiktok ? tiktok : website.tiktok;
+        website.linkedin = linkedin ? linkedin : website.linkedin;
         await website.save();
         return res.status(200).json(website);
     } catch (error) {

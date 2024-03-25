@@ -29,7 +29,10 @@ export class Website extends BaseEntity {
     phone_number_2: string;
 
     @Column({ nullable: true })
-    address: string;
+    ar_address: string;
+
+    @Column({ nullable: true })
+    en_address: string;
 
     @Column({ nullable: true })
     facebook: string;
@@ -38,7 +41,7 @@ export class Website extends BaseEntity {
     instagram: string;
 
     @Column({ nullable: true })
-    tiktok: string;
+    linkedin: string;
 
     @Column({ nullable: true })
     logo: string;
