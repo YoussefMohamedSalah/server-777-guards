@@ -5,6 +5,7 @@ import { CreateContactUsInput } from "../types/CreateContactUsInput";
 export const createContactUsRequest = async (createInput: CreateContactUsInput) => {
     const {
         full_name,
+        phone_number,
         email,
         subject,
         info,
@@ -16,6 +17,7 @@ export const createContactUsRequest = async (createInput: CreateContactUsInput) 
         if (email) contact.email = email;
         if (subject) contact.subject = subject;
         if (info) contact.info = info;
+        if (phone_number) contact.phone_number = phone_number;
         await contactRepository.save(contact);
         return contact;
     } catch (error) {

@@ -5,10 +5,11 @@ import { isValidUUID } from "../utils/validateUUID";
 import { createNotification } from "../repositories/NotificationRepository";
 
 export const contactRequest = async (req: Request, res: Response) => {
-    const { full_name, email, subject, info } = req.body;
+    const { full_name, email, subject, info, phone_number } = req.body;
     try {
         const createData: CreateContactUsInput = {
             full_name,
+            phone_number,
             email,
             subject,
             info,

@@ -3,8 +3,7 @@ import { getAllNotifications, getById } from "../repositories/NotificationReposi
 import { isValidUUID } from "../utils/validateUUID";
 
 export const getNotifications = async (req: Request, res: Response) => {
-  const { userId } = req.userData!;
-  const userNotifications = await getAllNotifications(userId);
+  const userNotifications = await getAllNotifications();
   if (userNotifications) {
     return res.status(200).json(userNotifications);
   }
@@ -35,8 +34,7 @@ export const deleteNotification = async (req: Request, res: Response) => {
 };
 
 export const deleteAllNotifications = async (req: Request, res: Response) => {
-  const { userId } = req.userData!;
-  const userNotifications = await getAllNotifications(userId);
+  const userNotifications = await getAllNotifications();
   if (userNotifications.length === 0) {
     return res.status(404).json({ msg: "Notifications not found" });
   }

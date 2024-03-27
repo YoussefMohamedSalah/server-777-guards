@@ -18,6 +18,9 @@ export class Contact extends BaseEntity {
     email: string;
 
     @Column({ nullable: true })
+    phone_number: string;
+
+    @Column({ nullable: true })
     subject: string;
 
     @Column({ nullable: true })

@@ -6,13 +6,13 @@ require("dotenv").config();
 // Multer configuration
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, UploadPath.REQUEST);
+    cb(null, UploadPath.CAROUSEL);
   },
   filename: (req, file, cb) => {
     cb(null, Date.now() + "-" + file.originalname); // Set the filename to be unique
   },
 });
 
-const uploadRequest = multer({ storage });
+const uploadCarousel = multer({ storage });
 
-export default uploadRequest;
+export default uploadCarousel;

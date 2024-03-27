@@ -21,11 +21,10 @@ export const getById = async (id: string) => {
   return notification;
 };
 
-export const getAllNotifications = async (userId: string) => {
+export const getAllNotifications = async () => {
   const notificationRepository = getRepository(Notification);
   const notification = await notificationRepository
     .createQueryBuilder("notification")
-    .where("notification.userId = :userId", { userId: userId })
     .orderBy("notification.receivedAt", "DESC")
     .getMany();
   return notification;

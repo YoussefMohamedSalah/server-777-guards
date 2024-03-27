@@ -47,6 +47,14 @@ export class Website extends BaseEntity {
     logo: string;
 
     @Column({
+        type: "jsonb",
+        array: false,
+        default: () => "'[]'",
+        nullable: false,
+    })
+    banners: Array<{ name: string; url: string }>;
+
+    @Column({
         type: "timestamp",
         default: () => "CURRENT_TIMESTAMP",
     })
