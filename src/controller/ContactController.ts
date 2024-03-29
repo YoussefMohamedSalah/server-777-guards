@@ -54,3 +54,18 @@ export const getContactUs = async (req: Request, res: Response) => {
         return res.status(500).json({ msg: "Internal server error" });
     }
 };
+
+export const deleteContactUs = async (req: Request, res: Response) => {
+    const { id } = req.params;
+    let isValid = isValidUUID(id);
+    if (!isValid) return res.status(400).json({ msg: "id is not valid" });
+    try {
+        const contactUs = await getContactById(id);
+        if (!contactUs) return res.status(404).json({ msg: "Contact request not found" });
+        await contactUs.remove();
+        return res.status(200).json({ msg: "Contact deleted" });
+    } catch (error) {
+        console.error("Error Deleting Contact:", error);
+        return res.status(500).json({ msg: "Internal server error" });
+    }
+};

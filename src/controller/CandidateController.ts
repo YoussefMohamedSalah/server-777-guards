@@ -34,12 +34,12 @@ export const deleteCandidate = async (req: Request, res: Response) => {
     let isValid = isValidUUID(id);
     if (!isValid) return res.status(400).json({ msg: "id is not valid" });
     try {
-        const todo = await getCandidateById(id);
-        if (!todo) return res.status(404).json({ msg: "Todo not found" });
-        await todo.remove();
-        return res.status(200).json({ msg: "Todo deleted" });
+        const candidate = await getCandidateById(id);
+        if (!candidate) return res.status(404).json({ msg: "Candidate not found" });
+        await candidate.remove();
+        return res.status(200).json({ msg: "Candidate deleted" });
     } catch (error) {
-        console.error("Error Deleting Todo:", error);
+        console.error("Error Deleting Candidate:", error);
         return res.status(500).json({ msg: "Internal server error" });
     }
 };

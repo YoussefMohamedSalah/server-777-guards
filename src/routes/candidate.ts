@@ -4,7 +4,7 @@ import { addCandidate, deleteCandidate, getAllCandidates, getCandidate } from ".
 
 const router = Router();
 // **************************************************
-router.route("/").get(checkAuth, getAllCandidates).post(addCandidate).delete(checkAuth, deleteCandidate)
-router.route("/:id").get(checkAuth, getCandidate)
+router.route("/").get(checkAuth, getAllCandidates).post(addCandidate);
+router.route("/:id").get(checkAuth, getCandidate).delete(checkAuth, deleteCandidate);
 
 export { router as CandidateRouter };
