@@ -14,7 +14,6 @@ export const getAllPartners = async (req: Request, res: Response) => {
     try {
         const partners = await getPartners();
         if (!partners) return res.status(404).json({ msg: "Partners not found" });
-        console.log(partners)
         return res.status(200).json(partners);
     } catch (error) {
         console.error("Error Retrieving Partners:", error);
