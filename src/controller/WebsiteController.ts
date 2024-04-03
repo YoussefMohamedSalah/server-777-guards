@@ -8,7 +8,7 @@ export type FileProps = {
 };
 
 export const updateWebsite = async (req: Request, res: Response) => {
-    const { name, email, land_line, phone_number_1, phone_number_2, ar_address, en_address, facebook, instagram, linkedin } = req.body;
+    const { name, email, land_line, phone_number_1, whatsapp_number, phone_number_2, ar_address, en_address, facebook, instagram, linkedin } = req.body;
     const { identifier } = req.params;
 
     try {
@@ -21,6 +21,7 @@ export const updateWebsite = async (req: Request, res: Response) => {
         website.phone_number_2 = phone_number_2;
         website.ar_address = ar_address;
         website.en_address = en_address;
+        website.whatsapp_number = whatsapp_number;
         website.facebook = facebook;
         website.instagram = instagram;
         website.linkedin = linkedin;

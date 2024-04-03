@@ -4,6 +4,7 @@ import { Job } from "./Job";
 import { Candidate } from "./Candidate";
 import { Website } from "./Website";
 import { Contact } from "./ContactRequest";
+import { Partner } from "./Partner"
 
 export const entities = [
   User,
@@ -11,5 +12,6 @@ export const entities = [
   Job,
   Candidate,
   Website,
-  Contact
+  Contact,
+  Partner
 ];

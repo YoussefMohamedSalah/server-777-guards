@@ -46,6 +46,9 @@ export class Website extends BaseEntity {
     @Column({ nullable: true })
     logo: string;
 
+    @Column({ nullable: true })
+    whatsapp_number: string;
+
     @Column({
         type: "jsonb",
         array: false,

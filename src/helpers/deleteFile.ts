@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 
 export const deleteFile = (fileName: string) => {
-  const filePath = path.join(__dirname, "../../uploads/file", fileName);
+  const filePath = path.join(__dirname, "../../", fileName);
   try {
     fs.unlink(filePath, (err) => {
       if (err) {

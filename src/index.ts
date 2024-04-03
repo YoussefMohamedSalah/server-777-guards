@@ -17,6 +17,7 @@ import { JobRouter } from "./routes/job";
 import { CandidateRouter } from "./routes/candidate";
 import { WebsiteRouter } from "./routes/website";
 import { ContactRouter } from "./routes/contact";
+import { PartnersRouter } from "./routes/partners";
 
 require("dotenv").config();
 
@@ -76,6 +77,8 @@ app.use("/api/candidates", CandidateRouter);
 app.use("/api/jobs", JobRouter);
 app.use("/api/website", WebsiteRouter);
 app.use("/api/contact", ContactRouter);
+app.use("/api/partners", PartnersRouter);
+
 // ************************************************
 // Serve static files
 app.use(express.static("uploads"));

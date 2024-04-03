@@ -40,7 +40,9 @@ export const createJob = async (createInput: CreateJobInput) => {
 export const getJobById = async (id: string) => {
     try {
         const jobRepository = getRepository(Job);
-        const job = await jobRepository.createQueryBuilder("job").where("job.id = :id", { id: id }).getOne();
+        const job = await jobRepository.createQueryBuilder("job")
+            .where("job.id = :id", { id: id })
+            .getOne();
         return job;
     } catch (error) {
         // Handle the error
